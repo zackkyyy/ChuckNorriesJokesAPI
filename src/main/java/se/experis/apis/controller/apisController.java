@@ -1,34 +1,31 @@
 package se.experis.apis.controller;
 
 
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import se.experis.apis.APIsConnection;
+import se.experis.apis.ChuckConnection;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 
 @RestController
 public class apisController {
-    APIsConnection apIsConnection= new APIsConnection();
+    ChuckConnection chuckConnection = new ChuckConnection();
     @GetMapping ("/random")
     public String getString() throws Exception {
-        return apIsConnection.getRandomJoke();
+        return chuckConnection.getRandomJoke();
     }
 
     @GetMapping ("/jokes/random/{category}")
     public String getrandomString(@PathVariable String category ) throws Exception {
-
-        String str ="";
+        String str = chuckConnection.getRandomFromCategory(category);
         return  str;
     }
 
     @GetMapping ("/jokes/categories")
     public ArrayList<String> getrandomString() throws Exception {
         System.out.println("here");
-        return apIsConnection.getAllCategories();
+        return chuckConnection.getAllCategories();
     }
 
 }

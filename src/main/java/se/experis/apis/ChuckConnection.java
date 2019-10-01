@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 
-public class APIsConnection {
+public class ChuckConnection {
     final String startPointURl ="https://api.chucknorris.io/";
 
     public ArrayList<String> getAllCategories() throws Exception {
